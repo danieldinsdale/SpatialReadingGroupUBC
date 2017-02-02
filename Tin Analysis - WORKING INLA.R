@@ -205,3 +205,7 @@ res_summary = res$summary.random
 res_means = res_summary$ii$mean + summary(res)$fixed[1,1]
 plot.means = inla.vector2matrix(res_means, nrow, ncol)
 
+# Spatial plot means 
+image.plot(x=cutpointsx, y=cutpointsy, z=plot.means, xlab = "", ylab = "", axes = T, col=rev(heat.colors(10)))
+points(x=tin$Xcoord, y=tin$Ycoord, pch = 15, cex=0.3)
+title(main = "", font.main = 4)

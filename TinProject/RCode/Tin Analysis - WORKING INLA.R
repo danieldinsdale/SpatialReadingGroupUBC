@@ -203,9 +203,57 @@ summary(res)
 
 res_summary = res$summary.random
 res_means = res_summary$ii$mean + summary(res)$fixed[1,1]
-plot.means = inla.vector2matrix(res_means, nrow, ncol)
 
-# Spatial plot means 
-image.plot(x=cutpointsx, y=cutpointsy, z=plot.means, xlab = "", ylab = "", axes = T, col=rev(heat.colors(10)))
+
+
+plot.means1 = inla.vector2matrix(res_means[1:10000], nrow, ncol)
+plot.means2 = inla.vector2matrix(res_means[10000+1:10000], nrow, ncol)
+
+# Spatial plot means based on the actual replicated observed values.
+image.plot(x=cutpointsx, y=cutpointsy, z=exp(plot.means2), xlab = "", ylab = "", axes = T, col=rev(heat.colors(10)))
 points(x=tin$Xcoord, y=tin$Ycoord, pch = 15, cex=0.3)
 title(main = "", font.main = 4)
+
+threshold_field = res_means[10000+1:60000]
+threshold_field[threshold_field<7 & threshold_field>5] = NA
+min_field = rep(NA,n)
+max_field=rep(NA,n)
+med_field =rep(NA,n)
+for (ind in 1:n)
+{
+    min_field[ind] = min(res_means[ind], threshold_field[10000+ind], threshold_field[20000+ind], threshold_field[30000+ind], threshold_field[40000+ind], threshold_field[50000+ind], na.rm=T)
+    med_field[ind] = median(c(res_means[ind], threshold_field[10000+ind], threshold_field[20000+ind], threshold_field[30000+ind], threshold_field[40000+ind], threshold_field[50000+ind]), na.rm=T)
+    max_field[ind] = max(res_means[ind], threshold_field[10000+ind], threshold_field[20000+ind], threshold_field[30000+ind], threshold_field[40000+ind], threshold_field[50000+ind], na.rm=T)
+}
+
+plot.min = inla.vector2matrix(min_field, nrow, ncol)
+image.plot(x=cutpointsx, y=cutpointsy, z=plot.min, xlab = "", ylab = "", axes = T, col=rev(heat.colors(10)), zlim = c(0.1,9))
+points(x=tin$Xcoord, y=tin$Ycoord, pch = 15, cex=0.3)
+title(main = "", font.main = 4)
+
+plot.med = inla.vector2matrix(med_field, nrow, ncol)
+image.plot(x=cutpointsx, y=cutpointsy, z=plot.med, xlab = "", ylab = "", axes = T, col=rev(heat.colors(10)), zlim = c(0.1,9))
+points(x=tin$Xcoord, y=tin$Ycoord, pch = 15, cex=0.3)
+title(main = "", font.main = 4)
+
+plot.max = inla.vector2matrix(max_field, nrow, ncol)
+image.plot(x=cutpointsx, y=cutpointsy, z=plot.max, xlab = "", ylab = "", axes = T, col=rev(heat.colors(10)), zlim = c(0.1,9))
+points(x=tin$Xcoord, y=tin$Ycoord, pch = 15, cex=0.3)
+title(main = "", font.main = 4)
+
+# Plot the lower 95 and upper 95 field #
+res_LCL = res_summary$ii$`0.025quant` + summary(res)$fixed[1,5]
+plot_LCL = inla.vector2matrix(res_LCL[1:10000], nrow, ncol)
+res_UCL = res_summary$ii$`0.975quant` + summary(res)$fixed[1,3]
+plot_UCL = inla.vector2matrix(res_UCL[1:10000], nrow, ncol)
+
+# Spatial plot LCL 
+image.plot(x=cutpointsx, y=cutpointsy, z=plot_LCL, xlab = "", ylab = "", axes = T, col=rev(heat.colors(10)),zlim=c(1.75,9))
+points(x=tin$Xcoord, y=tin$Ycoord, pch = 15, cex=0.3)
+title(main = "", font.main = 4)
+
+# Spatial plot UCL 
+image.plot(x=cutpointsx, y=cutpointsy, z=plot_UCL, xlab = "", ylab = "", axes = T, col=rev(heat.colors(10)),zlim=c(1.75,9))
+points(x=tin$Xcoord, y=tin$Ycoord, pch = 15, cex=0.3)
+title(main = "", font.main = 4)
+

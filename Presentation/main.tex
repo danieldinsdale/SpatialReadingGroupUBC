@@ -1,4 +1,5 @@
 \documentclass{beamer}
+\usepackage{subfigure}
 
 % There are many different themes available for Beamer. A comprehensive
 % list with examples is given here:
@@ -120,20 +121,49 @@
   \end{itemize}
 \end{frame}
 
-\section{Second Main Section}
+\section{Extension - Preferential Sampling}
+\subsection{The Problem}
 
-\subsection{Another Subsection}
-
-\begin{frame}{Blocks}
-\begin{block}{Block Title}
-You can also highlight sections of your presentation in a block, with it's own title
+\begin{frame}{Preferential Sampling}
+\begin{block}{The Problem}
+\begin{itemize}
+\item So far we have assumed the sampling locations $X$ are fixed, or assumed known.
+\item What if the sampling locations depend on the underlying field $S$?
+\end{itemize}
 \end{block}
-\begin{theorem}
-There are separate environments for theorems, examples, definitions and proofs.
-\end{theorem}
+
 \begin{example}
-Here is an example of an example block.
+\begin{itemize}
+\item Pollution data from measuring stations
+\item Ocean temperature data from marine mammals
+\item Lead concentration in Galicia (to be shown)
+\end{itemize}
 \end{example}
+\end{frame}
+
+\begin{frame}{Preferential Sampling}
+
+\begin{figure}
+\centering
+\caption{Example of a single realisation of $S$ and corresponding 100 sampling locations selected using a spatial Poisson Process with intensity $\lambda(x)=\exp(\beta S(x))$.\label{fig:PrefSimPlot}}
+\subfigure[Example of 100 preferentially sampled locations ($\beta=2$)]{\label{fig:a}\includegraphics[width=50mm]{Images/DiggleFakeSimPlot.pdf}}
+\subfigure[Example of 100 non-preferentially sampled locations ($\beta=0$)]{\label{fig:b}\includegraphics[width=50mm]{Images/DiggleFakeSimPlotNP.pdf}}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Preferential Sampling}
+\begin{block}{Solution}
+\begin{itemize}
+\item We must account for the dependence between $X$ and $S$.
+\begin{equation}
+L(\boldsymbol{\theta})=\int \left[X,Y,S\right]\mathrm{d}S.
+\end{equation}
+\item Diggle et al. 2010 - Monte Carlo 
+\item Integrated Nested Laplace Approximation (INLA) - Joe
+\item Template Model Builder - Danny
+\end{itemize}
+\end{block}
+
 \end{frame}
 
 % Placing a * after \section means it will not show in the

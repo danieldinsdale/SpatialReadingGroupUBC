@@ -122,7 +122,6 @@
 \end{frame}
 
 \section{Extension - Preferential Sampling}
-\subsection{The Problem}
 
 \begin{frame}{Preferential Sampling}
 \begin{block}{The Problem}
@@ -163,9 +162,26 @@ L(\boldsymbol{\theta})=\int \left[X,Y,S\right]\mathrm{d}S.
 \item Template Model Builder - Danny
 \end{itemize}
 \end{block}
-
 \end{frame}
 
+\begin{frame}{Preferential Sampling}
+\begin{block}{Results}
+\small
+\begin{table}[ht]
+\centering
+    \begin{tabular}{| c | c | c | c | c |}
+    \hline
+    Model & Parameter  & Standard MLE & {\it TMB} \\ \hline
+    Preferential & Bias & (0.77, 1.36)  & (0.41, 0.94) \\
+    Preferential & Root-mean-square error & (0.86, 1.40) & (0.60, 1.05)  \\ \hline
+\end{tabular}
+    \caption {Comparison of approximate $95\%$ confidence intervals for the root-mean-square errors and bias between standard MLE and {\it TMB} over 50 independent simulations for preferential ($\beta=2$) at location $x_0=(0.49, 0.49)$.}
+ \label{table:simtable}
+\end{table}
+\normalsize
+\end{block}
+
+\end{frame}
 % Placing a * after \section means it will not show in the
 % outline or table of contents.
 \section*{Summary}

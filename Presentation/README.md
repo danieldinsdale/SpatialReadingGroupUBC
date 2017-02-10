@@ -4,33 +4,48 @@ Each presentation is ~45 min and ~30 slides.  We probably need 1-2 people to pre
 ##Presentation 1):  Intro to spatial stats
 An overview of the topic.  Initial forays, clasical stats, and simple motivation example
 
-###Motivation
-3-4 slides?  
+##Motivation
+~5min
+3-4 slides?   (Adrian)
 * Specific challenges of spatial stats
   * Correlation
   * Continuous process but discreate measurements
 * EG the tin min
 
 
-###Basics
-* Variograms
+##Basics/Classical stats
+20-25 min
+3-4 slides max
+* Variograms (Adrian)
   * their parameters
   * Interpretation
 * Correlation structures
   * Exponential/spherical?
   * Mattern
-* MLE
-* Prefferential sampling
+
+1-2 slide
+* Krigging (Bo)
+
+3-4 slides
+* MLE (Bo/ Jasmine)
+
+
+###Inherrent challenges
+4ish slides
+* Prefferential sampling (Danny)
+
+3ish?
+* Non linearity of parameters (Adrian/Joe?)
+* Over confidence in estimated parameters  (part of Bayes?) Hand over
+
+
+##Bayes (Joe)
+20-25 min
+
+###INLA
+
 
 ###Example
 * Tin mine?
 * R packages
-* 
-
-###Inherrent challenges
-* Prefferential sampling
-* Over confidence in estimated parameters
-* Non linearity of parameters
-
-
-##Presentation 2): Bayes and INLA
+*

@@ -150,6 +150,45 @@
 \end{figure}
 \end{frame}
 
+\begin{frame}{Kriging}
+	\begin{itemize}
+		
+		\item Suppose our objective is to predict the value of the signal at an arbitrary location $S(x)$.
+		
+		\item Note that $(S(x), Y)$ is multivariate Gaussian with mean vector $\mu \mathbf{1}$ and covariance matrix
+		$$
+		\begin{pmatrix}
+		\sigma^2 & \sigma^2 r^T\\
+		\sigma^2 r & \sigma^2 V
+		\end{pmatrix},
+		$$
+		where $r$ is a vector with elements $r_i = \rho(\|x-x_i\|)$ and $V = \sigma^2 R + \tau^2 I$.
+		
+
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Kriging}
+	\begin{itemize}
+		
+		\item Conditional mean and variance:
+		$$E(S(x) | Y) = \mu + r^T V^{-1}(Y - \mu \mathbf{1}),$$
+		$$Var(S(x) | Y) = \sigma^2 (1 - r^T V^{-1} r).$$
+		
+		\item Two types:
+		\begin{itemize} 
+			\item Ordinary kriging: replace $\mu$ by its weighted least squares estimator
+			$$\hat{\mu} = (\mathbf{1}^T V^{-1} \mathbf{1})^{-1} \mathbf{1}^T V^{-1} Y.$$
+			
+			\item Simple kriging: replace $\mu$ by $\hat{\mu} = \bar{y}$.
+		\end{itemize}
+			
+
+		
+		\item Both kriging predictors can be expressed as a linear combination: $\hat{S}(x) = \sum_{i=1}^{n}a_i(x) Y_i$, but $\sum_{i=1}^{n}a_i(x)=1$ only for ordinary kriging.
+	\end{itemize}
+\end{frame}
+
 \begin{frame}{Maximum Likelihood Estimation}
 \begin{itemize}
 \item Gaussian model
@@ -200,8 +239,9 @@ Involve high dimensional integration;need MCMC/Hierarchical likelihood/Generaliz
 \begin{frame}{Maximum Likelihood Estimation (An Example)} %not sure if we want this slide, elevation data on page 115
 \begin{figure}
 \centering
-\includegraphics[scale = 0.45]{Pic1}
+\includegraphics[scale = 0.45]{Images/Pic1}
 \end{figure}
+
 \end{frame}
 
 

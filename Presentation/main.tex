@@ -121,6 +121,101 @@
   \end{itemize}
 \end{frame}
 
+
+\begin{frame}{Kriging}
+	\begin{itemize}
+		
+		\item Suppose our objective is to predict the value of the signal at an arbitrary location $S(x)$.
+		
+		\item Note that $(S(x), Y)$ is multivariate Gaussian with mean vector $\mu \mathbf{1}$ and covariance matrix
+		$$
+		\begin{pmatrix}
+		\sigma^2 & \sigma^2 r^T\\
+		\sigma^2 r & \sigma^2 V
+		\end{pmatrix},
+		$$
+		where $r$ is a vector with elements $r_i = \rho(\|x-x_i\|)$ and $V = \sigma^2 R + \tau^2 I$.
+		
+		
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Kriging}
+	\begin{itemize}
+		
+		\item Conditional mean and variance:
+		$$E(S(x) | Y) = \mu + r^T V^{-1}(Y - \mu \mathbf{1}),$$
+		$$Var(S(x) | Y) = \sigma^2 (1 - r^T V^{-1} r).$$
+		
+		\item Two types:
+		\begin{itemize} 
+			\item Ordinary kriging: replace $\mu$ by its weighted least squares estimator
+			$$\hat{\mu} = (\mathbf{1}^T V^{-1} \mathbf{1})^{-1} \mathbf{1}^T V^{-1} Y.$$
+			
+			\item Simple kriging: replace $\mu$ by $\hat{\mu} = \bar{y}$.
+		\end{itemize}
+		
+		
+		
+		\item Both kriging predictors can be expressed as a linear combination: $\hat{S}(x) = \sum_{i=1}^{n}a_i(x) Y_i$, but $\sum_{i=1}^{n}a_i(x)=1$ only for ordinary kriging.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Maximum Likelihood Estimation}
+	\begin{itemize}
+		\item Gaussian model
+		$$Y \sim N(D\beta, \sigma^2 R(\phi) + \tau^2I) $$
+		with covariates matrix $D_{n\times p}$, regression coefficients $\beta$ ,  covariance of a parametric model for $S(x)$, and nugget variance $\tau^2$. 
+		\item The log-likelihood function is 
+		\begin{align*}
+		L(\beta, \tau^2, \sigma^2, \phi) =  &- 0.5 \{n \log(2\pi) + log\{|(\sigma^2 R(\phi) +\tau^2 I) | \} \\
+		&+ (y-D\beta)^T(\sigma^2 R(\phi) + \tau^2 I)^{-1} (y - D\beta)\}
+		\end{align*}
+		\item Let $\nu^2 = ({\tau^2} /{\sigma^2})$, $V = R(\phi) + \nu I$, then $L(\beta, \tau^2, \sigma^2, \phi)$ is maximized at 
+		\begin{align}
+		\hat{\beta}(V) &= (D^T V^{-1}D)^{-1}D^TV^{-1}y \\
+		\hat{\sigma}^2(V) &= n^{-1} \{y - D\hat{\beta}(V)\}^T V^{-1}\{y - D\hat{\beta}(V)\} 
+		\end{align}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Maximum Likelihood Estimation}
+	\begin{itemize}
+		\item Plug (1) and (2) into $L(\beta, \tau^2, \sigma^2, \phi)$ and obtain  the {\color{blue}concentrated log-likelihood}: 
+		$L_0(\nu^2, \phi) = -0.5 \{n \log (2 \pi) + n \log \hat{\sigma}^2(V) +  log |V|+ n \}$
+		\item Optimize $L_0(\nu^2, \phi)$ numerically with respect to $\nu$ and $\phi$; \\ back substitution to obtain $\hat{\sigma}^2$ and $\hat{\beta}$
+		\item Re-parameterisation of $V$ can be used to obtain more stable estimation, e.g  the ratio $\sigma^2 / \phi$ is more stable than $\sigma^2$ and $\phi$
+		\item  Computational tool:  {\color{blue}profile log-likelihood}: \\
+		Assume a model with parameters $(\alpha, \psi)$, 
+		$$L_p(\alpha) = L(\alpha, \hat{\psi}(\alpha))  = \max_{\psi}(L(\alpha, \psi))$$  %. help to calculation CI for each individual parameter; Full maximum likelihood estimation then requires numerical maximisation with respect to ?, ?2 and ? jointly. 
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Maximum Likelihood Estimation}
+	\begin{itemize}
+		\item Non-Gaussian data: \\ 
+		(1): transformation to Gaussian (2)  generalized linear model 
+		\item   (1) E.g. Box-Cox transformation; denote the transformed responses $Y^{\ast} = (Y_1^{\ast}, ..., Y_n^{\ast})$, and fit a Gaussian model 
+		$$Y^{\ast} \sim N(D\beta, \sigma^2 \{R(\phi) + \tau^2I\}) $$
+		Computationally demanding, transformation may impede scientific interpretation
+		\item (2) Generalized linear model 
+		\begin{align*}  %notations book page 123, may need to explain theta and g , no space on this slide : ( ...
+		L(\theta|S) &= \prod_{i=1}^n f_i(y_i|S, \theta)\\
+		L(\theta, \phi) &= \int_ S \prod_{i=1}^n f_i(y_i|s, \theta)g(s|\phi) ds
+		\end{align*}
+		Involve high dimensional integration;need MCMC/Hierarchical likelihood/Generalized estimating equations
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Maximum Likelihood Estimation (An Example)} %not sure if we want this slide, elevation data on page 115
+	\begin{figure}
+		\centering
+		\includegraphics[scale = 0.45]{Images/Pic1}
+	\end{figure}
+	
+\end{frame}
+
 \section{Extension - Preferential Sampling}
 
 \begin{frame}{Preferential Sampling}

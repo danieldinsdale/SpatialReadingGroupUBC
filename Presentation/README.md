@@ -36,14 +36,19 @@ An overview of the topic.  Initial forays, clasical stats, and simple motivation
 
 3ish?
 * Non linearity of parameters (Adrian/Joe?)
-* Over confidence in estimated parameters  (part of Bayes?) Hand over
+* Over confidence in spatial predictors  (part of Bayes?) Hand over
 
 
 ##Bayes (Joe)
-20-25 min
+15-20 min
+* MLE of Tin data
+* Why there is more uncertainty that this represents
 
 ###INLA
+* How
+* Advantages
 
+###Comparison of INLA and MLE
 
 ###Example
 * Tin mine?

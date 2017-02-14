@@ -1,5 +1,6 @@
 \documentclass{beamer}
 \usepackage{subfigure}
+\usepackage{caption}
 
 % There are many different themes available for Beamer. A comprehensive
 % list with examples is given here:
@@ -239,7 +240,7 @@
 		\item Re-parameterisation of $V$ can be used to obtain more stable estimation, e.g  the ratio $\sigma^2 / \phi$ is more stable than $\sigma^2$ and $\phi$
 		\item  Computational tool:  {\color{blue}profile log-likelihood}: \\
 		Assume a model with parameters $(\alpha, \psi)$, 
-		$$L_p(\alpha) = L(\alpha, \hat{\psi}(\alpha))  = \max_{\psi}(L(\alpha, \psi))$$  %. help to calculation CI for each individual parameter; Full maximum likelihood estimation then requires numerical maximisation with respect to ?, ?2 and ? jointly. 
+		$$L_p(\alpha) = L(\alpha, \hat{\psi}(\alpha))  = \max_{\psi}(L(\alpha, \psi))$$  %. help to calculation CI for each individual parameter; Full maximum likelihood estimation then requires numerical maximisation  jointly. 
 	\end{itemize}
 \end{frame}
 
@@ -263,9 +264,10 @@
 \begin{frame}{Maximum Likelihood Estimation (An Example)} %not sure if we want this slide, elevation data on page 115
 	\begin{figure}
 		\centering
-		\includegraphics[scale = 0.45]{Images/Pic1}
+		\includegraphics[scale = 0.35]{Images/Pic1}
+		\captionsetup{font={small,it}}
+		\caption{ { \scriptsize left: constant mean model; right: linear trend surface \newline  circle: sample  variogram; solid line $\kappa = 2.5$; dashed line $\kappa = 1.5$; dotted line $\kappa = 0.5$}}
 	\end{figure}
-	
 \end{frame}
 
 \section{Extension - Preferential Sampling}

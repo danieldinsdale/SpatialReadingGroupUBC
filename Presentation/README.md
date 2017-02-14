@@ -16,19 +16,18 @@ An overview of the topic.  Initial forays, clasical stats, and simple motivation
 ##Basics/Classical stats
 20-25 min
 3-4 slides max
+* Correlation structures
+  * Mattern
+  * Exponential as special case
 * Variograms (Adrian)
   * their parameters
   * Interpretation
-* Correlation structures
-  * Exponential/spherical?
-  * Mattern
-
-1-2 slide
-* Krigging (Bo)
 
 3-4 slides
 * MLE (Bo/ Jasmine)
 
+1-2 slide
+* Krigging (Bo)
 
 ###Inherrent challenges
 4ish slides

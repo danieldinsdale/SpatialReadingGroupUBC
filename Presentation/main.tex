@@ -331,6 +331,80 @@ L(\boldsymbol{\theta})=\int \left[X,Y,S\right]\mathrm{d}S.
 \end{block}
 
 \end{frame}
+
+\section{Bayesian Estimation and Prediction}
+
+\begin{frame}{Problems with the MLE approach}
+
+\begin{itemize}
+\item MLE method seperates parameter estimation and spatial prediction as two distinct problems.
+\item First the model is formulated, and it's parameters estimated.
+\item These estimated parameters are assumed true and spatial prediction equations are computed with these estimates plugged-in.
+\item Parameter uncertainty is ignored when making spatial prediction.
+\item Parameter uncertainty is often VERY HIGH. Even with seemingly large datasets ($n > 10,000$), the positive correlation dilutes the information present. Largely different values of correlation parameters $\phi$ often fit the data equally well.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Bayesian approach}
+
+\begin{itemize}
+\item Account for parameter uncertainty when making spatial prediction and hence make more conservative estimates of prediction accuracy.
+\end{itemize}
+
+\begin{align*}
+[S | Y ] = \int [S | Y, \theta ] [ \theta | Y ] d \theta
+\end{align*}
+
+\begin{itemize}
+\item The Bayesian predictive distribution is a weighted average of plug-in predictive distributions $[S | Y, \hat{\theta} ]$, weighted by the posterior uncertainty of the model values $\theta$.
+\item Arbitrary nonlinear functional $T(S)$ of $S$ can be estimated (along with credible intervals, standard errors etc) by simple deterministic transformations of the posterior samples of $S$.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Problems with Bayesian implementation}
+
+\begin{itemize}
+\item Due to the flexibility of the Matern correlation function, many different combinations of the correlation parameters $\phi$ fit the data equally well.
+\item A consequence of this is that the posterior distribution of $[\theta | Y]$ has non-negligible probability mass across a wide range of the parameter space.
+\item The first consequence of this is that posterior distributions are extremely sensitive to prior distributions. Apparently 'diffuse' priors can still heavily affect the location and scale of the posterior distribution.
+\item Secondly, MCMC samplers must be formulated with large transition jumps to ensure the whole parameter space is explored. This leads to VERY LONG MCMC chains needing to be run (100,000 +).
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{The joy of INLA}
+
+\begin{itemize}
+\item INLA enables \textbf{very} accurate deterministic approximations to both $[\theta | Y]$ and $\int [S | Y, \theta ] [ \theta | Y ] d \theta$ to be obtained.
+\item INLA handles most well-known response functions (Binomial, Poisson, Gamma etc), enabling Generalized Geostatistical Models to be fit.
+\item Through a combination of high-accuracy Laplace approximations and cubic spline interpolation, values from INLA are often indistinguishable from the 'true' values from an MCMC chain.
+\item INLA is FAST. Taking only seconds - minutes to run compared with the hours - days that MCMC can take. 
+\item Multiple responses can be fit to the same spatial process! (E.g poisson process and intensity process enabling preferential sampling to be investigated.)
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Real example: Predicting total Tin in Cornwall, UK}
+\begin{block}{Sampled data}
+Please insert bubble plot
+\end{block}
+
+\end{frame}
+
+\begin{frame}{Real example: Predicting total Tin in Cornwall, UK}
+\begin{block}{Predicted field}
+Please insert predicted mean field
+\end{block}
+
+\end{frame}
+
+\begin{frame}{Real example: Predicting total Tin in Cornwall, UK}
+\begin{block}{Upper and lower 95\% credible field}
+Please insert side-by-side 95\% credible interval field
+\end{block}
+\end{frame}
 % Placing a * after \section means it will not show in the
 % outline or table of contents.
 \section*{Summary}

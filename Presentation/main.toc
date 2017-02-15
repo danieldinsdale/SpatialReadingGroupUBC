@@ -3,5 +3,7 @@
 \beamer@sectionintoc {2}{Classical Frequentist Spatial Stats}{5}{0}{2}
 \beamer@subsectionintoc {2}{1}{Spatial Relationships}{5}{0}{2}
 \beamer@subsectionintoc {2}{2}{Variograms}{8}{0}{2}
-\beamer@sectionintoc {3}{Extension - Preferential Sampling}{21}{0}{3}
-\beamer@sectionintoc {4}{Bayesian Estimation and Prediction}{25}{0}{4}
+\beamer@sectionintoc {3}{Maximum Likelihood Estimation}{15}{0}{3}
+\beamer@sectionintoc {4}{Kriging}{19}{0}{4}
+\beamer@sectionintoc {5}{Extension - Preferential Sampling}{21}{0}{5}
+\beamer@sectionintoc {6}{Bayesian Estimation and Prediction}{25}{0}{6}

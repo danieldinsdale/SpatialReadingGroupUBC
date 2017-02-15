@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/W32TeX) (preloaded format=pdflatex 2015.5.12)  15 FEB 2017 10:42
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/W32TeX) (preloaded format=pdflatex 2015.5.12)  15 FEB 2017 10:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -730,20 +730,7 @@ Package caption Info: hyperref package is loaded.
 Package caption Info: Hyperref support is turned off
 (caption)             because hyperref has stopped early.
 Package caption Info: subfigure package is loaded.
-) (./main.aux
-
-LaTeX Warning: Label `fig:a' multiply defined.
-
-
-LaTeX Warning: Label `sub@fig:a' multiply defined.
-
-
-LaTeX Warning: Label `fig:b' multiply defined.
-
-
-LaTeX Warning: Label `sub@fig:b' multiply defined.
-
-)
+) (./main.aux)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 68.
@@ -993,26 +980,26 @@ thkerncmss.
 
 ] [17
 
-] [18
-
-] [19
-
-]
-<Images/Pic1.png, id=597, 662.475pt x 568.1225pt>
+] <Images/Pic1.png, id=554, 662.475pt x 568.1225pt>
 File: Images/Pic1.png Graphic file (type png)
- <use Images/Pic1.png>
-Package pdftex.def Info: Images/Pic1.png used on input line 271.
+
+<use Images/Pic1.png>
+Package pdftex.def Info: Images/Pic1.png used on input line 233.
 (pdftex.def)             Requested size: 231.86972pt x 198.84584pt.
 
-Overfull \vbox (5.12828pt too high) detected at line 271
+Overfull \vbox (5.12828pt too high) detected at line 233
  []
 
-[20
+[18
 
- <./Images/Pic1.png>] [21
+ <./Images/Pic1.png>] [19
+
+] [20
+
+] [21
 
 ]
-<Images/DiggleFakeSimPlot.pdf, id=654, 505.89pt x 505.89pt>
+<Images/DiggleFakeSimPlot.pdf, id=668, 505.89pt x 505.89pt>
 File: Images/DiggleFakeSimPlot.pdf Graphic file (type pdf)
 
 <use Images/DiggleFakeSimPlot.pdf>
@@ -1023,7 +1010,7 @@ Underfull \hbox (badness 1852) in paragraph at lines 301--301
 []\OT1/cmss/m/n/9 (a) Ex-am-ple of 100 pref-er-en-tially
  []
 
-<Images/DiggleFakeSimPlotNP.pdf, id=655, 505.89pt x 505.89pt>
+<Images/DiggleFakeSimPlotNP.pdf, id=669, 505.89pt x 505.89pt>
 File: Images/DiggleFakeSimPlotNP.pdf Graphic file (type pdf)
 
 <use Images/DiggleFakeSimPlotNP.pdf>
@@ -1045,7 +1032,7 @@ Package pdftex.def Info: Images/DiggleFakeSimPlotNP.pdf used on input line 301.
 ] [28
 
 ]
-<Images/PredictedLogTin.jpeg, id=869, 854.19125pt x 601.24625pt>
+<Images/PredictedLogTin.jpeg, id=883, 854.19125pt x 601.24625pt>
 File: Images/PredictedLogTin.jpeg Graphic file (type jpg)
 
 <use Images/PredictedLogTin.jpeg>
@@ -1058,14 +1045,14 @@ Overfull \vbox (6.71066pt too high) detected at line 397
 [29
 
  <./Images/PredictedLogTin.jpeg>]
-<Images/LCLTinPlot.jpeg, id=898, 860.21375pt x 600.2425pt>
+<Images/LCLTinPlot.jpeg, id=912, 860.21375pt x 600.2425pt>
 File: Images/LCLTinPlot.jpeg Graphic file (type jpg)
 
 <use Images/LCLTinPlot.jpeg>
 Package pdftex.def Info: Images/LCLTinPlot.jpeg used on input line 409.
 (pdftex.def)             Requested size: 142.26378pt x 99.26471pt.
 
-<Images/UCLTinPlot.jpeg, id=899, 974.64125pt x 596.2275pt>
+<Images/UCLTinPlot.jpeg, id=913, 974.64125pt x 596.2275pt>
 File: Images/UCLTinPlot.jpeg Graphic file (type jpg)
 
 <use Images/UCLTinPlot.jpeg>
@@ -1093,23 +1080,26 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 468.
  (./main.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 468.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 468.
-Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 4D7294A6502AE61CD5A8A986650A905E;381.
 
+
+Package rerunfilecheck Warning: File `main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `main.out':
+(rerunfilecheck)             Before: 02864E6AA5C6F668C97C055F01801FC3;487
+(rerunfilecheck)             After:  F823C2CD0B6E87459C8A627AA1767165;487.
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.0pt have occurred.
 
-
-LaTeX Warning: There were multiply-defined labels.
-
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 468.
  ) 
 Here is how much of TeX's memory you used:
- 18120 strings out of 493109
- 344241 string characters out of 6138587
- 408900 words of memory out of 5000000
- 21076 multiletter control sequences out of 15000+600000
+ 18130 strings out of 493109
+ 344333 string characters out of 6138587
+ 408861 words of memory out of 5000000
+ 21084 multiletter control sequences out of 15000+600000
  23518 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  56i,14n,55p,406b,592s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1130,10 +1120,10 @@ e1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2014/texmf-dist/fonts/type1/public
 cm/cmsy8.pfb><c:/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/symbols/ms
 am10.pfb><c:/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.
 pfb>
-Output written on main.pdf (32 pages, 786103 bytes).
+Output written on main.pdf (32 pages, 787163 bytes).
 PDF statistics:
- 1077 PDF objects out of 1200 (max. 8388607)
- 995 compressed objects within 10 object streams
- 83 named destinations out of 1000 (max. 500000)
- 121 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1093 PDF objects out of 1200 (max. 8388607)
+ 1010 compressed objects within 11 object streams
+ 85 named destinations out of 1000 (max. 500000)
+ 137 words of extra memory for PDF output out of 10000 (max. 10000000)
 

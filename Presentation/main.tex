@@ -297,6 +297,7 @@
 \subfigure[Example of 100 preferentially sampled locations ($\beta=2$)]{\label{fig:a}\includegraphics[width=50mm]{Images/DiggleFakeSimPlot.pdf}}
 \subfigure[Example of 100 non-preferentially sampled locations ($\beta=0$)]{\label{fig:b}\includegraphics[width=50mm]{Images/DiggleFakeSimPlotNP.pdf}}
 \end{figure}
+
 \end{frame}
 
 \begin{frame}{Preferential Sampling}
@@ -387,16 +388,24 @@ L(\boldsymbol{\theta})=\int \left[X,Y,S\right]\mathrm{d}S.
 \end{frame}
 
 \begin{frame}{Real example: Predicting total Tin in Cornwall, UK}
-\begin{block}{Predicted field}
-Please insert predicted mean field
-\end{block}
+\begin{figure}
+\centering
+\caption{Predicted mean field .\label{fig:predictLogTin}}
+\includegraphics[scale = 0.35]{Images/PredictedLogTin.jpeg}
+\end{figure}
 
 \end{frame}
 
 \begin{frame}{Real example: Predicting total Tin in Cornwall, UK}
-\begin{block}{Upper and lower 95\% credible field}
-Please insert side-by-side 95\% credible interval field
-\end{block}
+
+\begin{figure}
+\centering
+\caption{Upper and lower 95\% credible fields.\label{fig:credFields}}
+\subfigure[]{\includegraphics[width=50mm]{Images/LCLTinPlot.jpeg}}
+\subfigure[]{\includegraphics[width=55mm]{Images/UCLTinPlot.jpeg}}
+\end{figure}
+
+
 \end{frame}
 % Placing a * after \section means it will not show in the
 % outline or table of contents.

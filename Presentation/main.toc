@@ -1,4 +1,7 @@
-\beamer@sectionintoc {1}{First Main Section}{3}{0}{1}
-\beamer@subsectionintoc {1}{1}{First Subsection}{3}{0}{1}
-\beamer@subsectionintoc {1}{2}{Second Subsection}{5}{0}{1}
-\beamer@sectionintoc {2}{Extension - Preferential Sampling}{18}{0}{2}
+\beamer@endinputifotherversion {3.36pt}
+\beamer@sectionintoc {1}{Motivation}{3}{0}{1}
+\beamer@sectionintoc {2}{Classical Frequentist Spatial Stats}{5}{0}{2}
+\beamer@subsectionintoc {2}{1}{Spatial Relationships}{5}{0}{2}
+\beamer@subsectionintoc {2}{2}{Variograms}{8}{0}{2}
+\beamer@sectionintoc {3}{Extension - Preferential Sampling}{21}{0}{3}
+\beamer@sectionintoc {4}{Bayesian Estimation and Prediction}{25}{0}{4}

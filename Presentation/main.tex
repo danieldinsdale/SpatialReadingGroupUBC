@@ -186,25 +186,34 @@
 		L(\beta, \tau^2, \sigma^2, \phi) =  &- 0.5 \{n \log(2\pi) + log\{|(\sigma^2 R(\phi) +\tau^2 I) | \} \\
 		&+ (y-D\beta)^T(\sigma^2 R(\phi) + \tau^2 I)^{-1} (y - D\beta)\}
 		\end{align*}
-		\item Let $\nu^2 = ({\tau^2} /{\sigma^2})$, $V = R(\phi) + \nu I$, then $L(\beta, \tau^2, \sigma^2, \phi)$ is maximized at 
-		\begin{align}
-		\hat{\beta}(V) &= (D^T V^{-1}D)^{-1}D^TV^{-1}y \\
-		\hat{\sigma}^2(V) &= n^{-1} \{y - D\hat{\beta}(V)\}^T V^{-1}\{y - D\hat{\beta}(V)\} 
-		\end{align}
 	\end{itemize}
 \end{frame}
 
 \begin{frame}{Maximum Likelihood Estimation}
+
 	\begin{itemize}
+	   \item Let $\nu^2 = ({\tau^2} /{\sigma^2})$, $V = R(\phi) + \nu I$, then $L(\beta, \tau^2, \sigma^2, \phi)$ is maximized at 
+		\begin{align}
+		\hat{\beta}(V) &= (D^T V^{-1}D)^{-1}D^TV^{-1}y \\
+		\hat{\sigma}^2(V) &= n^{-1} \{y - D\hat{\beta}(V)\}^T V^{-1}\{y - D\hat{\beta}(V)\} 
+		\end{align}
 		\item Plug (1) and (2) into $L(\beta, \tau^2, \sigma^2, \phi)$ and obtain  the {\color{blue}concentrated log-likelihood}: 
 		$L_0(\nu^2, \phi) = -0.5 \{n \log (2 \pi) + n \log \hat{\sigma}^2(V) +  log |V|+ n \}$
 		\item Optimize $L_0(\nu^2, \phi)$ numerically with respect to $\nu$ and $\phi$; \\ back substitution to obtain $\hat{\sigma}^2$ and $\hat{\beta}$
-		\item Re-parameterisation of $V$ can be used to obtain more stable estimation, e.g  the ratio $\sigma^2 / \phi$ is more stable than $\sigma^2$ and $\phi$
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Maximum Likelihood Estimation}
+
+	\begin{itemize}
+\item Re-parameterisation of $V$ can be used to obtain more stable estimation, e.g  the ratio $\sigma^2 / \phi$ is more stable than $\sigma^2$ and $\phi$
 		\item  Computational tool:  {\color{blue}profile log-likelihood}: \\
 		Assume a model with parameters $(\alpha, \psi)$, 
 		$$L_p(\alpha) = L(\alpha, \hat{\psi}(\alpha))  = \max_{\psi}(L(\alpha, \psi))$$  %. help to calculation CI for each individual parameter; Full maximum likelihood estimation then requires numerical maximisation  jointly. 
 	\end{itemize}
 \end{frame}
+
 
 \begin{frame}{Maximum Likelihood Estimation}
 	\begin{itemize}

@@ -1,9 +1,9 @@
 \beamer@endinputifotherversion {3.36pt}
 \beamer@sectionintoc {1}{Motivation}{3}{0}{1}
-\beamer@sectionintoc {2}{Classical Frequentist Spatial Stats}{5}{0}{2}
-\beamer@subsectionintoc {2}{1}{Spatial Relationships}{5}{0}{2}
-\beamer@subsectionintoc {2}{2}{Variograms}{8}{0}{2}
-\beamer@sectionintoc {3}{Maximum Likelihood Estimation}{15}{0}{3}
-\beamer@sectionintoc {4}{Kriging}{20}{0}{4}
-\beamer@sectionintoc {5}{Extension - Preferential Sampling}{22}{0}{5}
-\beamer@sectionintoc {6}{Bayesian Estimation and Prediction}{26}{0}{6}
+\beamer@sectionintoc {2}{Classical Frequentist Spatial Stats}{4}{0}{2}
+\beamer@subsectionintoc {2}{1}{Spatial Relationships}{4}{0}{2}
+\beamer@subsectionintoc {2}{2}{Estimating $\rho (u)$}{8}{0}{2}
+\beamer@sectionintoc {3}{Maximum Likelihood Estimation}{11}{0}{3}
+\beamer@sectionintoc {4}{Kriging}{16}{0}{4}
+\beamer@sectionintoc {5}{Extension - Preferential Sampling}{18}{0}{5}
+\beamer@sectionintoc {6}{Bayesian Estimation and Prediction}{22}{0}{6}

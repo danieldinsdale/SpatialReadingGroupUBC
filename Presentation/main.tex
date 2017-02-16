@@ -213,7 +213,7 @@
 \begin{frame}{Maximum Likelihood Estimation}
 
 	\begin{itemize}
-	   \item Let $\nu^2 = ({\tau^2} /{\sigma^2})$, $V = R(\phi) + \nu I$, then $L(\beta, \tau^2, \sigma^2, \phi)$ is maximized at 
+	   \item Let $\nu^2 = ({\tau^2} /{\sigma^2})$, $V = R(\phi) + \nu^2 I$, then $L(\beta, \tau^2, \sigma^2, \phi)$ is maximized at 
 		\begin{align}
 		\hat{\beta}(V) &= (D^T V^{-1}D)^{-1}D^TV^{-1}y \\
 		\hat{\sigma}^2(V) &= n^{-1} \{y - D\hat{\beta}(V)\}^T V^{-1}\{y - D\hat{\beta}(V)\} 
@@ -241,7 +241,7 @@
 		\item Non-Gaussian data: \\ 
 		(1): transformation to Gaussian (2)  generalized linear model 
 		\item   (1) E.g. Box-Cox transformation; denote the transformed responses $Y^{\ast} = (Y_1^{\ast}, ..., Y_n^{\ast})$, and fit a Gaussian model 
-		$$Y^{\ast} \sim N(D\beta, \sigma^2 \{R(\phi) + \tau^2I\}) $$
+		$$Y^{\ast} \sim N(D\beta, \sigma^2 \{R(\phi) + \nu^2 I\}) $$
 		Computationally demanding, transformation may impede scientific interpretation
 		\item (2) Generalized linear model 
 		\begin{align*}  %notations book page 123, may need to explain theta and g , no space on this slide : ( ...

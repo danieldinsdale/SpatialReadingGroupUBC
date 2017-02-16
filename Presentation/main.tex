@@ -104,83 +104,94 @@
 	\end{figure}    
 \end{frame}
 
-\begin{frame}{Assumptions}{}
-  \begin{itemize}
-  \item {
-    Smooth data
-  }
-  \item {
-    Stationary data
-	\begin{itemize}
-   		\item Does a trend extend beyond the bounds of the study?
-   		\item Is the covariance consistent in the bounds of the study?
-    \end{itemize}
-  }
-  \end{itemize}
-\end{frame}
 
 \section{Classical Frequentist Spatial Stats}
 \subsection{Spatial Relationships}
-\begin{frame}{Covariance}{}
+\begin{frame}{Assumptions}{For the rest of the presentation we are in $\mathbb{R}^2$}
   \begin{itemize}
-  \item {
-    Smooth data
-    \begin{itemize}
-    	\item Except for "nugget effect"
-    \end{itemize}
-  }
-  \item {
-    Stationary data
+  \item Smooth data (Except for "nugget effect")
+  \item Stationary data
 	\begin{itemize}
    		\item Does a trend extend beyond the bounds of the study?
    		\item Is the covariance consistent in the bounds of the study?
     \end{itemize}
-  }
-  \end{itemize}
-\end{frame}
-
-\begin{frame}{Mattern Function}{}
+  \item $\{S(x) : x \in \mathbb{R}^2 \}$ Is Gaussian with
   \begin{itemize}
-  \item { 
-  		$\rho(x) =\{2^{\kappa-1} \Gamma(\kappa)\}^{-1} \frac{u}{\phi}^\kappa K_\kappa (\frac{u}{\phi})$
-  }
-  \item {
-    $\kappa$ is order of differentiation, smoothness
-  }
-  \item{
-  	$\phi is scale, degree of decay over time$
-  }
-  \item{
-  	$\kappa$ and $\phi$ are not orthogonal.
-  }
+  	\item mean $= \mu$
+    \item variance $\sigma^2 = Var\{S(x)\}$
+    \item correlation fxn $\rho(u) = Corr\{S(x), S(x')\}$
+  	\item $u_i = ||x_i - x'||$
+  \end{itemize}
+  \item $Y_i = S(x_i) + Z_i$
   \end{itemize}
 \end{frame}
 
-\begin{frame}
+\begin{frame}{Spatial Covariance $\rho(u)$}
+\begin{itemize}
+	\item {Similar to Autocovariance in time series, except time lag is replaced by distance $u$.}
+\end{itemize}
   	\begin{figure}
 	\centering
-		\includegraphics[scale = 0.75]{Images/BullsEyeCovariance.png}
+		\includegraphics[scale = 0.33]{Images/BullsEyeCovariance.png}
 		\captionsetup{font={small,it}}
 		\caption{ { \scriptsize Measurements are some distance $u$ from each other.}}
 	\end{figure}
 \end{frame}
 
-\subsection{Variograms}
+\begin{frame}{Mattern Function}{}
+  \begin{itemize}
+  \item General function describing how quickly the correlation decays.
+  \item { 
+  		$\rho(u) =\{2^{\kappa-1} \Gamma(\kappa)\}^{-1} \frac{u}{\phi}^\kappa K_\kappa (\frac{u}{\phi})$
+  \begin{itemize}
+  	\item {$\kappa$: order of differentiation, smoothness.}
+  	\item{$\phi$: scale, degree of decay over time.}
+  	\item $K_\kappa()$: Modified Bessel function.
+  \end{itemize}
+  \item  Special cases:
+  	\begin{itemize}
+  		\item $\kappa = 0.5$: Exponential decay in $\mathbb{R}^2$.
+    	\item $\kappa \rightarrow \infty$: Gaussian decay in $\mathbb{R}^2$.
+  	\end{itemize}
+  \item $\kappa$ and $\phi$ are not orthogonal.}
+  \end{itemize}
+\end{frame}
+
+
+
+\subsection{Estimating $\rho(u)$}
 
 % You can reveal the parts of a slide one at a time
 % with the \pause command:
 
-\begin{frame}{Variogram}
+\begin{frame}{Variogram}{Visualising the decay of $\rho(u)$ with distance}
   \begin{itemize}
-  \item {
-    First item.
-      }
+  \item Bin the variance between all the points into set distances
+  \item $\tau^2$: The nugget  
+  \item $\tau^2 + \sigma^2 = Var(y)$: The sill
+  \item When $V_Y(u) = Var(y)$: Range
   \end{itemize}
+  	\begin{figure}
+	\centering
+		\includegraphics[scale = 0.45]{Images/VariogramSummary.jpg}
+		\captionsetup{font={small,it}}
+		\caption{ { \scriptsize Estimating how correlation changes with distance. \\from: \url{http://vsp.pnnl.gov/help/Vsample/Kriging_Variogram_Model.htm}
+}}
+	\end{figure} 
+\end{frame}
+
+\begin{frame}{Variogram part 2}{What is it actually?}
+	\begin{align}
+		V(u) &= \frac{1}{2}Var \{S(x) – S(x – u)\} \\
+        &= \sigma^2\{1-\rho(u)\}\\
+        V_Y(u) &= \tau^2 + \sigma^2\{1-\rho(u)\}
+	\end{align}
   	\begin{figure}
 	\centering
 		\includegraphics[scale = 0.5]{Images/VariogramSummary.jpg}
 		\captionsetup{font={small,it}}
-		\caption{ { \scriptsize Estimating how correlation changes with distance.}}
+		\caption{ { \scriptsize Estimating how correlation changes with distance. \\from: \url{http://vsp.pnnl.gov/help/Vsample/Kriging_Variogram_Model.htm}
+}}
 	\end{figure} 
 \end{frame}
 
